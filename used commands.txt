@@ -1,0 +1,259 @@
+$ ###############################################################
+#                          WARNING!!!!                        #
+# This is a sandbox environment. Using personal credentials   #
+# is HIGHLY! discouraged. Any consequences of doing so are    #
+# completely the user's responsibilites.                      #
+#                                                             #
+# The PWD team.                                               #
+###############################################################
+[node1] (local) root@192.168.0.18 ~
+$ mkdir custom-drupal
+[node1] (local) root@192.168.0.18 ~
+$ cd custom-drupal
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ vi dockerfile
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ vi docker-compose.yml
+
+[1]+  Stopped                 vim docker-compose.yml
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ vi docker-compose.yml
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ ls
+docker-compose.yml  dockerfile
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ vi docker-compose.yml
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ docker-compose up -d
+Creating network "custom-drupal_default" with the default driver
+Creating volume "custom-drupal_web-data" with default driver
+Creating volume "custom-drupal_web-modules" with default driver
+Creating volume "custom-drupal_web-profiles" with default driver
+Creating volume "custom-drupal_web-themes" with default driver
+Creating volume "custom-drupal_web-sites" with default driver
+Building drupal
+Step 1/5 : FROM drupal:8
+8: Pulling from library/drupal
+bf5952930446: Pulling fs layer
+a409b57eb464: Pulling fs layer
+3192e6c84ad0: Pulling fs layer
+43553740162b: Pulling fs layer
+d8b8bba42dea: Pull complete
+eb10907c0110: Pull complete
+10568906f34e: Pull complete
+ea72c5f3651b: Pull complete
+5adcd0c0ecc3: Pull complete
+3223d70e4296: Pull complete
+5fb31eed71d2: Pull complete
+5dd4ab964294: Pull complete
+6bd3f1cf7584: Pull complete
+10387f740a0e: Pull complete
+d5b8e09df1b0: Pull complete
+68bceef3b9f2: Pull complete
+6e663f13e37f: Pull complete
+7f88323ed83a: Pull complete
+Digest: sha256:d56dab0d437fcf5427d2bde057bdc4b65632f34ff33f0966a52595b8c29a9787
+Status: Downloaded newer image for drupal:8
+ ---> 293677e8d0b8
+Step 2/5 : RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+ ---> Running in cb64d729be61
+Get:1 http://security.debian.org/debian-security buster/updates InRelease [65.4 kB]
+Get:2 http://deb.debian.org/debian buster InRelease [122 kB]
+Get:3 http://deb.debian.org/debian buster-updates InRelease [51.9 kB]
+Get:4 http://security.debian.org/debian-security buster/updates/main amd64 Packages [226 kB]
+Get:5 http://deb.debian.org/debian buster/main amd64 Packages [7906 kB]
+Get:6 http://deb.debian.org/debian buster-updates/main amd64 Packages [7868 B]
+Fetched 8379 kB in 4s (2348 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  git-man less libcurl3-gnutls liberror-perl libpcre2-8-0 libx11-6 libx11-data
+  libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 openssh-client xauth
+Suggested packages:
+  gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-el git-email
+  git-gui gitk gitweb git-cvs git-mediawiki git-svn keychain libpam-ssh
+  monkeysphere ssh-askpass
+The following NEW packages will be installed:
+  git git-man less libcurl3-gnutls liberror-perl libpcre2-8-0 libx11-6
+  libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 openssh-client xauth
+0 upgraded, 15 newly installed, 0 to remove and 4 not upgraded.
+Need to get 10.1 MB of archives.
+After this operation, 47.2 MB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian buster/main amd64 less amd64 487-0.1+b1 [129 kB]
+Get:2 http://deb.debian.org/debian buster/main amd64 openssh-client amd64 1:7.9p1-10+deb10u2 [782 kB]
+Get:3 http://deb.debian.org/debian buster/main amd64 libcurl3-gnutls amd64 7.64.0-4+deb10u1 [330 kB]
+Get:4 http://deb.debian.org/debian buster/main amd64 libpcre2-8-0 amd64 10.32-5 [213 kB]
+Get:5 http://deb.debian.org/debian buster/main amd64 liberror-perl all 0.17027-2 [30.9 kB]
+Get:6 http://deb.debian.org/debian buster/main amd64 git-man all 1:2.20.1-2+deb10u3 [1620 kB]
+Get:7 http://deb.debian.org/debian buster/main amd64 git amd64 1:2.20.1-2+deb10u3 [5633 kB]
+Get:8 http://deb.debian.org/debian buster/main amd64 libxau6 amd64 1:1.0.8-1+b2 [19.9 kB]
+Get:9 http://deb.debian.org/debian buster/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+Get:10 http://deb.debian.org/debian buster/main amd64 libxcb1 amd64 1.13.1-2 [137 kB]
+Get:11 http://deb.debian.org/debian buster/main amd64 libx11-data all 2:1.6.7-1 [298 kB]
+Get:12 http://deb.debian.org/debian buster/main amd64 libx11-6 amd64 2:1.6.7-1 [754 kB]
+Get:13 http://deb.debian.org/debian buster/main amd64 libxext6 amd64 2:1.3.3-1+b2 [52.5 kB]
+Get:14 http://deb.debian.org/debian buster/main amd64 libxmuu1 amd64 2:1.1.2-2+b3 [23.9 kB]
+Get:15 http://deb.debian.org/debian buster/main amd64 xauth amd64 1:1.0.10-1 [40.3 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 10.1 MB in 0s (28.6 MB/s)
+Selecting previously unselected package less.
+(Reading database ... 13567 files and directories currently installed.)
+Preparing to unpack .../00-less_487-0.1+b1_amd64.deb ...
+Unpacking less (487-0.1+b1) ...
+Selecting previously unselected package openssh-client.
+Preparing to unpack .../01-openssh-client_1%3a7.9p1-10+deb10u2_amd64.deb ...
+Unpacking openssh-client (1:7.9p1-10+deb10u2) ...
+Selecting previously unselected package libcurl3-gnutls:amd64.
+Preparing to unpack .../02-libcurl3-gnutls_7.64.0-4+deb10u1_amd64.deb ...
+Unpacking libcurl3-gnutls:amd64 (7.64.0-4+deb10u1) ...
+Selecting previously unselected package libpcre2-8-0:amd64.
+Preparing to unpack .../03-libpcre2-8-0_10.32-5_amd64.deb ...
+Unpacking libpcre2-8-0:amd64 (10.32-5) ...
+Selecting previously unselected package liberror-perl.
+Preparing to unpack .../04-liberror-perl_0.17027-2_all.deb ...
+Unpacking liberror-perl (0.17027-2) ...
+Selecting previously unselected package git-man.
+Preparing to unpack .../05-git-man_1%3a2.20.1-2+deb10u3_all.deb ...
+Unpacking git-man (1:2.20.1-2+deb10u3) ...
+Selecting previously unselected package git.
+Preparing to unpack .../06-git_1%3a2.20.1-2+deb10u3_amd64.deb ...
+Unpacking git (1:2.20.1-2+deb10u3) ...
+Selecting previously unselected package libxau6:amd64.
+Preparing to unpack .../07-libxau6_1%3a1.0.8-1+b2_amd64.deb ...
+Unpacking libxau6:amd64 (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Preparing to unpack .../08-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:amd64.
+Preparing to unpack .../09-libxcb1_1.13.1-2_amd64.deb ...
+Unpacking libxcb1:amd64 (1.13.1-2) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../10-libx11-data_2%3a1.6.7-1_all.deb ...
+Unpacking libx11-data (2:1.6.7-1) ...
+Selecting previously unselected package libx11-6:amd64.
+Preparing to unpack .../11-libx11-6_2%3a1.6.7-1_amd64.deb ...
+Unpacking libx11-6:amd64 (2:1.6.7-1) ...
+Selecting previously unselected package libxext6:amd64.
+Preparing to unpack .../12-libxext6_2%3a1.3.3-1+b2_amd64.deb ...
+Unpacking libxext6:amd64 (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxmuu1:amd64.
+Preparing to unpack .../13-libxmuu1_2%3a1.1.2-2+b3_amd64.deb ...
+Unpacking libxmuu1:amd64 (2:1.1.2-2+b3) ...
+Selecting previously unselected package xauth.
+Preparing to unpack .../14-xauth_1%3a1.0.10-1_amd64.deb ...
+Unpacking xauth (1:1.0.10-1) ...
+Setting up libxau6:amd64 (1:1.0.8-1+b2) ...
+Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+Setting up libxcb1:amd64 (1.13.1-2) ...
+Setting up openssh-client (1:7.9p1-10+deb10u2) ...
+Setting up less (487-0.1+b1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+Setting up libcurl3-gnutls:amd64 (7.64.0-4+deb10u1) ...
+Setting up liberror-perl (0.17027-2) ...
+Setting up libx11-data (2:1.6.7-1) ...
+Setting up libpcre2-8-0:amd64 (10.32-5) ...
+Setting up git-man (1:2.20.1-2+deb10u3) ...
+Setting up libx11-6:amd64 (2:1.6.7-1) ...
+Setting up libxmuu1:amd64 (2:1.1.2-2+b3) ...
+Setting up libxext6:amd64 (2:1.3.3-1+b2) ...
+Setting up git (1:2.20.1-2+deb10u3) ...
+Setting up xauth (1:1.0.10-1) ...
+Processing triggers for libc-bin (2.28-10) ...
+Processing triggers for mime-support (3.62) ...
+Removing intermediate container cb64d729be61
+ ---> 19b6e951eb1f
+Step 3/5 : WORKDIR ~/var/www/html/themes
+ ---> Running in 3f94f65daaab
+Removing intermediate container 3f94f65daaab
+ ---> 3667bb682e42
+Step 4/5 : RUN git clone --branch 8.x-3.x --single-branch --depth 1 https://git.drupal.org/project/bootstrap.git && chown -R www-data:www-data bootstrap
+ ---> Running in b2b65db0d4ed
+Cloning into 'bootstrap'...
+warning: redirecting to https://git.drupalcode.org/project/bootstrap.git/
+Removing intermediate container b2b65db0d4ed
+ ---> 56cb1bba9a1e
+Step 5/5 : WORKDIR ~/custom-drupal
+ ---> Running in d11b390b6b28
+Removing intermediate container d11b390b6b28
+ ---> 72f24bd9d0a8
+Successfully built 72f24bd9d0a8
+Successfully tagged custom-drupal_drupal:latest
+WARNING: Image for service drupal was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Pulling postgres (postgres:12.1)...
+12.1: Pulling from library/postgres
+bc51dd8edc1b: Pull complete
+d2b355dbb6c6: Pull complete
+d237363a1a91: Pull complete
+ff4b9d2fde66: Pull complete
+646492d166e7: Pull complete
+50eeac6fd5fb: Pull complete
+502963de6da8: Pull complete
+d7263f7627b9: Pull complete
+46b135c7e429: Pull complete
+259a29a883ed: Pull complete
+b3b8f133c3f4: Pull complete
+49e91678bd48: Pull complete
+15326bd3db00: Pull complete
+0aab6409ca4d: Pull complete
+Digest: sha256:5181eccc7c903e4f1beffa89a735cb7ed72e0c81d6c34c471552c3fa8bff0858
+Status: Downloaded newer image for postgres:12.1
+Creating custom-drupal_postgres_1 ... done
+Creating custom-drupal_drupal_1   ... done
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ docker login -u <dockerhub username>
+bash: syntax error near unexpected token `newline'
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ docker login -u jaxiodute
+Password: 
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ dockre ps
+bash: dockre: command not found
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ docker ps
+CONTAINER ID        IMAGE                  COMMAND                  CREATED             STATUS              PORTS                  NAMES
+dd30286f7f57        custom-drupal_drupal   "docker-php-entrypoi…"   5 minutes ago       Up 5 minutes        0.0.0.0:8080->80/tcp   custom-drupal_drupal_1
+cf071214b97c        postgres:12.1          "docker-entrypoint.s…"   5 minutes ago       Up 5 minutes        5432/tcp               custom-drupal_postgres_1
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ docker commit custom-drupal_drupal_1 jaxiodute/custom-drupal:latest
+sha256:5151be07dc0fd170e28c2d771245da3ddb5a9407757146d6a7484e628f5e8ff4
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ docker tag custom-drupal_drupal:latest jaxiodute/custom-drupal:latest
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ docker push jaxiodute/custom-drupal:latest
+The push refers to repository [docker.io/jaxiodute/custom-drupal]
+4f5f7a772c62: Preparing 
+8e829428f805: Preparing 
+a493108bc34e: Preparing 
+cb4ec6c52a99: Preparing 
+a238660a705b: Preparing 
+910a95962ab7: Waiting 
+10ad1ff2b64d: Waiting 
+fca7b9499823: Waiting 
+cb4ec6c52a99: Pushed 
+21af4b982863: Mounted from library/drupal 
+9ef8b8ac227a: Mounted from library/drupal 
+3980b1189fe7: Mounted from library/drupal 
+01994d49795e: Mounted from library/drupal 
+fb87b8ea1fb0: Mounted from library/drupal 
+da8e2fe0fa81: Mounted from library/drupal 
+c7ba9188a7f6: Mounted from library/drupal 
+b325a1cca10d: Mounted from library/drupal 
+7edde2b8acef: Mounted from library/drupal 
+65bff11b305b: Mounted from library/drupal 
+de5ed450c2e9: Mounted from library/drupal 
+8bf7a47284aa: Mounted from library/drupal 
+d0f104dc0a1f: Mounted from library/drupal 
+latest: digest: sha256:d3cf4cd4aa069683346443a1e204bd21c99711e6cfc75bbddb85767bf780621f size: 4918
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ ^C
+[node1] (local) root@192.168.0.18 ~/custom-drupal
+$ 
